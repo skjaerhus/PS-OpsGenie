@@ -29,6 +29,9 @@ function Invoke-RestMethodProxy
             #Write-Host "Connecting using default credentials..."
         }
     }
+    else {
+        $p = @{}
+    }
 
     $PSBoundParameters.GetEnumerator() | ForEach-Object{ $p.Add( $_.Key, $_.Value) }
     Invoke-RestMethod @p
